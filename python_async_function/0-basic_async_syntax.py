@@ -9,7 +9,7 @@ import time
 import random
 
 
-async def wait_random(max_delay: int = 10):
+async def wait_random(max_delay: int = 10) -> float:
 
     """
     waits and prints a random wait time between - and max_delay
