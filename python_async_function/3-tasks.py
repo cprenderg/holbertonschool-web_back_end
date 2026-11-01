@@ -11,7 +11,7 @@ import asyncio
 my_module = importlib.import_module("0-basic_async_syntax")
 
 
-def task_wait_random(max_delay: int):
+def task_wait_random(max_delay: int) -> asyncio.Task:
 
     """
     returns a wait_random with type asyncio.Task
