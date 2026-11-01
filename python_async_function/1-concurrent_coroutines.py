@@ -20,10 +20,14 @@ async def wait_n(n: int, max_delay: int = 10) -> List[float]:
     calls wait_random n times and returns the fastest wait time first
     """
 
-    wait_times = []
+    tasks = []
+    results = []
 
     for _ in range(n):
-        new_time = await my_module.wait_random(max_delay)
-        wait_times.append(new_time)
+        tasks.append(my_module.wait_random(max_delay))
 
-    return wait_times
+    for task in asyncio.as_completed(tasks):
+        result = await task
+        results.append(result)
+
+    return results
