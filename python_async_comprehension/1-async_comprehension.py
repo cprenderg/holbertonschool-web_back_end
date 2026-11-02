@@ -15,9 +15,4 @@ async def async_comprehension() -> List[float]:
     returns a list of numbers from a generator
     """
 
-    numbers = []
-
-    async for number in generator():
-        numbers.append(number)
-
-    return numbers
+    return [value async for value in generator()]
